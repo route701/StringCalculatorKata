@@ -1,5 +1,8 @@
 package com.vince;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Hello world!
  *
@@ -30,6 +33,13 @@ public class App
 
     private static String[] splitString(String num)
     {
+        if (num.startsWith("//")) {
+            Matcher m = Pattern.compile("//(.)\n(.*)").matcher(num);
+            m.matches();
+            String customDelim = m.group(1), customNum = m.group(2);
+            return customNum.split(customDelim);
+        }
+
         return num.split(",|\n");
     }
 }
