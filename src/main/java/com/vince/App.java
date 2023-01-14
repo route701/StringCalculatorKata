@@ -15,20 +15,21 @@ public class App
     {
         if ("".equals(numbers)) return 0;
 
-        if (numbers.contains(",")) {
-            String[] nums = numbers.split(",");
-            int sum = 0;
-            for (int i = 0; i < nums.length; i++) {
-                sum += toInt(nums[i]);    
-            }
-            return sum;
+        String[] nums = splitString(numbers);
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += toInt(nums[i]);    
         }
-
-        return toInt(numbers);
+        return sum;
     }
 
     private static int toInt(String num)
     {
         return Integer.parseInt(num);
+    }
+
+    private static String[] splitString(String num)
+    {
+        return num.split(",|\n");
     }
 }
