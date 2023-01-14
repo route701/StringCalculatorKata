@@ -10,4 +10,11 @@ public class App
     {
         System.out.println( "Hello World!" );
     }
+
+    public static int add(String numbers)
+    {
+        if ("".equals(numbers)) return 0;
+        
+        return -1;
+    }
 }
