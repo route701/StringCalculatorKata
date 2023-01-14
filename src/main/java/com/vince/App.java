@@ -45,9 +45,16 @@ public class App
     private static String[] splitString(String num)
     {
         if (num.startsWith("//")) {
-            Matcher m = Pattern.compile("//(.)\n(.*)").matcher(num);
+            Matcher m = Pattern.compile("//(.*)\n(.*)").matcher(num);
             m.matches();
             String customDelim = m.group(1), customNum = m.group(2);
+
+            Matcher m2 = Pattern.compile("\\[(.*)\\]").matcher(customDelim);
+            if (m2.matches()) {
+                String customDelim2 = m2.group(1);
+                return customNum.split(Pattern.quote(customDelim2));
+            }
+            
             return customNum.split(Pattern.quote(customDelim));
         }
 

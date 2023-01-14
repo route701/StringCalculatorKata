@@ -76,4 +76,10 @@ public class AppTest
     {
         assertEquals(2, App.add("1001,2"));
     }
+
+    @Test
+    public void shouldAllowCustomDelimiterOfAnyLength()
+    {
+        assertEquals(6, App.add("//[|||]\n1|||2|||3"));
+    }
 }
