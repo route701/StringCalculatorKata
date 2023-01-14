@@ -14,7 +14,17 @@ public class App
     public static int add(String numbers)
     {
         if ("".equals(numbers)) return 0;
-        
-        return Integer.parseInt(numbers);
+
+        if (numbers.contains(",")) {
+            String[] nums = numbers.split(",");
+            return toInt(nums[0]) + toInt(nums[1]);
+        }
+
+        return toInt(numbers);
+    }
+
+    private static int toInt(String num)
+    {
+        return Integer.parseInt(num);
     }
 }

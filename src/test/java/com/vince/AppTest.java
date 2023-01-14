@@ -29,4 +29,10 @@ public class AppTest
     {
         assertEquals(1, App.add("1"));
     }
+
+    @Test
+    public void shouldReturnSumOnTwoStrings()
+    {
+        assertEquals(3, App.add("1,2"));
+    }
 }
