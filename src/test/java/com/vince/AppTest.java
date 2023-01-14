@@ -59,4 +59,15 @@ public class AppTest
     {
         assertEquals(3, App.add("//.\n1.2"));
     }
+
+    @Test
+    public void shouldNotAllowNegatives()
+    {
+        try {
+            App.add("2,-4,3,-5" );
+            fail("Exception expected.");
+        } catch (Exception e) {
+            assertEquals("Negatives not allowed: -4,-5", e.getMessage());
+        }
+    }    
 }

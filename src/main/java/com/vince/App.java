@@ -1,5 +1,6 @@
 package com.vince;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,9 +21,18 @@ public class App
 
         String[] nums = splitString(numbers);
         int sum = 0;
+        ArrayList<String> negatives = new ArrayList<String>();
         for (int i = 0; i < nums.length; i++) {
-            sum += toInt(nums[i]);    
+            if (toInt(nums[i]) < 0) {
+                negatives.add(nums[i]);
+            } else {
+                sum += toInt(nums[i]);
+            }
         }
+
+        if (negatives.size() > 0) 
+            throw new RuntimeException("Negatives not allowed: " + String.join(",", negatives));
+
         return sum;
     }
 
