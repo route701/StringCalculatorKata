@@ -53,4 +53,10 @@ public class AppTest
     {
         assertEquals(3, App.add("//;\n1;2"));
     }
+
+    @Test
+    public void shouldAllowRegexCharAsCustomDelimiter()
+    {
+        assertEquals(3, App.add("//.\n1.2"));
+    }
 }

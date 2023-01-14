@@ -37,7 +37,7 @@ public class App
             Matcher m = Pattern.compile("//(.)\n(.*)").matcher(num);
             m.matches();
             String customDelim = m.group(1), customNum = m.group(2);
-            return customNum.split(customDelim);
+            return customNum.split(Pattern.quote(customDelim));
         }
 
         return num.split(",|\n");
