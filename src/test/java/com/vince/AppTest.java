@@ -23,4 +23,10 @@ public class AppTest
     {
         assertEquals(0, App.add(""));
     }
+
+    @Test
+    public void shouldReturnNumberOnSingleString()
+    {
+        assertEquals(1, App.add("1"));
+    }
 }
