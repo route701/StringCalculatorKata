@@ -35,4 +35,10 @@ public class AppTest
     {
         assertEquals(3, App.add("1,2"));
     }
+
+    @Test
+    public void shouldReturnSumOfAllNumbers()
+    {
+        assertEquals(6, App.add("1,2,3"));
+    }
 }

@@ -17,7 +17,11 @@ public class App
 
         if (numbers.contains(",")) {
             String[] nums = numbers.split(",");
-            return toInt(nums[0]) + toInt(nums[1]);
+            int sum = 0;
+            for (int i = 0; i < nums.length; i++) {
+                sum += toInt(nums[i]);    
+            }
+            return sum;
         }
 
         return toInt(numbers);
