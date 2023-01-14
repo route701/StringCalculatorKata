@@ -18,7 +18,7 @@ public class App
 
     public static int add(String numbers)
     {
-        if ("".equals(numbers)) return 0;
+        if (numbers == null || "".equals(numbers)) return 0;
 
         String[] nums = splitString(numbers);
         int sum = 0;

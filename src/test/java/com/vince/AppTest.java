@@ -94,4 +94,10 @@ public class AppTest
     {
         assertEquals(6, App.add("//[|||][%%%]\n1|||2%%%3"));
     }
+
+    @Test
+    public void shouldReturnZeroOnNullString()
+    {
+        assertEquals(0, App.add(null));
+    }
 }
