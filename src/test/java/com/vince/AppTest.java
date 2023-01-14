@@ -82,4 +82,16 @@ public class AppTest
     {
         assertEquals(6, App.add("//[|||]\n1|||2|||3"));
     }
+
+    @Test
+    public void shouldAllowMultipleCustomDelimiters()
+    {
+        assertEquals(6, App.add("//[|][%]\n1|2%3"));
+    }
+
+    @Test
+    public void shouldAllowMultipleCustomDelimitersOfAnyLength()
+    {
+        assertEquals(6, App.add("//[|||][%%%]\n1|||2%%%3"));
+    }
 }

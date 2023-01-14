@@ -5,14 +5,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Hello world!
+ * String Calculator!
  *
  */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "String Calculator!" );
+        System.out.println(App.add("//[|||][%%%]\n1|||2%%%3"));   //output: 6
     }
 
     public static int add(String numbers)
@@ -49,15 +50,26 @@ public class App
             m.matches();
             String customDelim = m.group(1), customNum = m.group(2);
 
-            Matcher m2 = Pattern.compile("\\[(.*)\\]").matcher(customDelim);
-            if (m2.matches()) {
-                String customDelim2 = m2.group(1);
-                return customNum.split(Pattern.quote(customDelim2));
+            if (customDelim.indexOf("[") == 0 && customDelim.endsWith("]")) {
+                Matcher m2 = Pattern.compile("\\[(.*?)\\]").matcher(customDelim);
+                while (m2.find()) {
+                    for (int i = 0; i <= m2.groupCount(); i++) {
+                        String curDelim = m2.group(i);
+                        customNum = customNum.replaceAll(Pattern.quote(curDelim), ",");
+                    }
+                }
+
+                return defaultSpliter(customNum);
             }
             
             return customNum.split(Pattern.quote(customDelim));
         }
 
+        return defaultSpliter(num);
+    }
+
+    private static String[] defaultSpliter(String num)
+    {
         return num.split(",|\n");
     }
 }
