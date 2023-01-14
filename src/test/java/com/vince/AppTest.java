@@ -69,5 +69,11 @@ public class AppTest
         } catch (Exception e) {
             assertEquals("Negatives not allowed: -4,-5", e.getMessage());
         }
-    }    
+    }
+
+    @Test
+    public void shouldIgnoreNumbersGreaterThanThousand()
+    {
+        assertEquals(2, App.add("1001,2"));
+    }
 }

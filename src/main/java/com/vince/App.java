@@ -23,10 +23,11 @@ public class App
         int sum = 0;
         ArrayList<String> negatives = new ArrayList<String>();
         for (int i = 0; i < nums.length; i++) {
-            if (toInt(nums[i]) < 0) {
+            int curNum = toInt(nums[i]);
+            if (curNum < 0) {
                 negatives.add(nums[i]);
-            } else {
-                sum += toInt(nums[i]);
+            } else if (curNum < 1001) {
+                sum += curNum;
             }
         }
 
